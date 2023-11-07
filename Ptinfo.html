@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <!--Stylesheet-->
+    <style media="screen">
+        *,
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(236, 244, 244);
+        }
+
+        .background {
+            width: 430px;
+            height: 520px;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+
+        .background .shape {
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        form {
+            height: 520px;
+            width: 400px;
+            background-color: rgba(255, 255, 255, 0.13);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+            padding: 100px 35px;
+        }
+
+        form * {
+            font-family: 'Poppins', sans-serif;
+            color: #000000;
+            letter-spacing: 0.5px;
+            outline: none;
+            border: none;
+        }
+
+        form h3 {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 42px;
+            text-align: center;
+        }
+
+
+        label {
+            display: block;
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        input {
+            display: block;
+            height: 50px;
+            width: 100%;
+            background-color: rgba(50, 44, 44, 0.07);
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        ::placeholder {
+            color: #000000;
+        }
+
+        button {
+            margin-top: 50px;
+            margin-left: 0;
+            width: 100%;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .box {
+            border: 2px solid black;
+            padding: 10px;
+            width: 150px;
+            height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="patientSearch">
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <form>
+            <h3>Find Patient</h3>
+            <label for="patientID">Emirates ID or MRN:</label><br>
+            <input type="text" placeholder="Enter your ID number/MRN" id="patientID">
+            <button type="button" id="btnSubmit">Enter</button>
+            <p id="patientError" class="errMessage"></p>
+        </form>
+    </div>
+    <div id="patientInfo" style="display: none;"> 
+        <form style="width: 80%; height: 80%;padding-top: 10px;padding-bottom: 10px;">  
+                <button type="button" id="btnBack" style="width: 20%;margin-top: 10px;margin-bottom: 20px;">Back</button>
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading" style="background-color:rgba(50, 44, 44, 0.07);">Patient Information</div>
+                <div class="panel-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-1">Name:</div> 
+                                <div class="col-sm-5" id="patientName"></div> 
+                                <div class="col-sm-1">Gender:</div> 
+                                <div class="col-sm-5" id="patientGender"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">MRNno.</div> 
+                                <div class="col-sm-5" id="patientMRNno"></div> 
+                                <div class="col-sm-1">DOB:</div> 
+                                <div class="col-sm-5" id="patientDOB"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">Nationality:</div> 
+                                <div class="col-sm-10" id="patientNationality"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-7"> Picture <img src="images/pic.jpg" class="box"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>        
+                <!-- Table -->
+                <table class="table" id="patientInfotable">
+                    <tr style="background-color: #000000;">
+                        <th style="color: #ffffff;">Date</th>
+                        <th style="color: #ffffff;">Hospital</th>
+                        <th style="color: #ffffff;">Department</th>
+                        <th style="color: #ffffff;">Doctor</th>
+                        <th style="color: #ffffff;">Diagnosis</th>
+                        <th style="color: #ffffff;">Treatment</th>
+                    </tr>
+                </table>
+              </div>
+              <p> Medical records <button type="button" onclick="location.href='table.html'" style="width:20%;margin: 0px;">click here</button></p>
+        </form>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("#btnSubmit").click(function () {
+            var patientID = $("#patientID").val();
+            var isValidPatient = false;
+
+            $.getJSON('records.json', function (data) {
+                $.each(data.patientList, function (i, item) {
+                    if (item.ID == patientID) {
+                        isValidPatient = true;
+                        return false;
+                    }
+                });
+            })
+                .always(function (d) {
+                    if (!isValidPatient) {
+                        $("#patientError").html("Patient not found.").addClass("errMessage");
+                        $("#patientSearch").show();
+                        $("#patientInfo").hide();
+                    }
+                    else {
+                        $("#patientError").html("").addClass("removeClass");
+                        $("#patientSearch").hide();
+                        $("#patientInfo").show();
+                        
+                        var student = '';
+                        $.each(d.patientList, function (i, item) {
+                            if (item.ID == patientID) {
+                                $('#patientName').text(item.firstName +' '+ item.lastName);
+                                $('#patientGender').text(item.Gender);
+                                $('#patientMRNno').text(item.MRNno);
+                                $('#patientDOB').text(item.DOB);
+                                $('#patientNationality').text(item.Nationality);
+                                //CONSTRUCTION OF ROWS HAVING 
+                                // DATA FROM JSON OBJECT 
+                                student += '<tr>'; 
+                                student += '<td>' +  
+                                item.patientRecord.date + '</td>'; 
+  
+                                student += '<td>' +  
+                                item.patientRecord.hospital + '</td>'; 
+  
+                                student += '<td>' +  
+                                item.patientRecord.department+ '</td>'; 
+  
+                                student += '<td>' +  
+                                item.patientRecord.doctor + '</td>'; 
+  
+                                student += '<td>' +  
+                                item.patientRecord.diagnosis + '</td>'; 
+
+                                student += '<td>' +  
+                                item.patientRecord.treatment + '</td>'; 
+
+                            student += '</tr>'; 
+                            }
+                        });
+                        //INSERTING ROWS INTO TABLE  
+                        $('#patientInfotable').append(student); 
+                    }
+                });
+        });
+
+        $("#btnBack").click(function () {
+            $("#patientSearch").show();
+            $("#patientInfo").hide();
+        });
+    });
+</script>
+
+</html>

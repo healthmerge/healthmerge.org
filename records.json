@@ -1,0 +1,61 @@
+{
+	"doctorLogin":[
+		{	
+			"userId": "d", 
+			"password": "d"
+		},
+		{
+			"userId": "d2",
+			"password": "d"
+		}
+	],
+	"nurseLogin":[
+		{
+			"userId": "n", 
+			"password": "n"
+		},
+		{
+			"userId": "n2",
+			"password": "nurse"
+		}
+	],
+	"patientList":[
+		{
+			"ID": "P0001",
+			"firstName": "Diya",
+			"lastName": "Maharjan",
+			"MRNno":"P0001",
+			"Nationality": "Nepalese",
+			"Gender": "Female",
+			"DOB": "01/01/2003",
+			"patientRecord":
+				{
+					"date": "2023/09/01",
+					"hospital": "Dubai Hospital",
+					"department": "Respiratory",
+					"doctor":"Jay",
+					"diagnosis": "Tuberculosis",
+					"treatment": "Isoniazid and pyrazinamide"
+				}
+			    
+		},
+		{
+			"ID": "P0002",
+			"firstName": "Divya",
+			"lastName": "Maharjan",
+			"MRNno":"P0002",
+			"Nationality": "Nepalese",
+			"Gender": "Female",
+			"DOB": "01/01/1992",
+			"patientRecord":
+				{
+					"date": "2022/09/07",
+					"hospital": "Thumbay",
+					"department": "ENT",
+					"doctor":"Mina",
+					"diagnosis": "Otitis media",
+					"treatment": "Amoxicillin"
+				}
+		}
+	]
+}
